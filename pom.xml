@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
   ~ Copyright (C) 2017 WSO2 Inc. (http://wso2.com)
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -14,22 +13,18 @@
 
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses />.
-  -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>wso2</artifactId>
         <groupId>org.wso2</groupId>
         <version>5</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.wso2.extension.siddhi.gpl.execution.geo</groupId>
     <artifactId>siddhi-gpl-execution-geo-parent</artifactId>
     <version>4.0.11-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Siddhi Execution Extension - Geo Aggregator Parent</name>
-
     <profiles>
         <profile>
             <id>default</id>
@@ -41,7 +36,6 @@
             </modules>
         </profile>
     </profiles>
-
     <properties>
         <siddhi.version>4.0.4</siddhi.version>
         <log4j.version>1.2.17.wso2v1</log4j.version>
@@ -50,7 +44,6 @@
         <testng.version>6.8</testng.version>
         <jacoco.version>0.7.9</jacoco.version>
     </properties>
-
     <scm>
         <connection>scm:git:https://github.com/wso2-extensions/siddhi-gpl-execution-geo.git</connection>
         <url>https://github.com/wso2-extensions/siddhi-gpl-execution-geo.git</url>
@@ -58,7 +51,6 @@
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -117,7 +109,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <build>
         <extensions>
             <extension>
@@ -126,7 +117,6 @@
                 <version>2.1</version>
             </extension>
         </extensions>
-
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -163,7 +153,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -249,12 +238,34 @@
                                 <outputDirectory>${basedir}/target/coverage-reports/</outputDirectory>
                             </configuration>
                         </execution>
+                        <execution>
+                            <id>default-check-by-coverage-enforcer</id>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                            <configuration>
+                                <dataFile>${basedir}/target/coverage-reports/jacoco.exec</dataFile>
+                                <rules>
+                                    <!-- implementation is needed only for Maven 2 -->
+                                    <rule implementation="org.jacoco.maven.RuleConfiguration">
+                                        <element>BUNDLE</element>
+                                        <limits>
+                                            <!-- implementation is needed only for Maven 2 -->
+                                            <limit implementation="org.jacoco.report.check.Limit">
+                                                <counter>LINE</counter>
+                                                <value>COVEREDRATIO</value>
+                                                <minimum>0.0</minimum>
+                                            </limit>
+                                        </limits>
+                                    </rule>
+                                </rules>
+                            </configuration>
+                        </execution>
                     </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
-
     <pluginRepositories>
         <pluginRepository>
             <id>wso2.releases</id>
@@ -289,7 +300,6 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-
     <repositories>
         <repository>
             <id>wso2-nexus</id>
@@ -324,7 +334,6 @@
             </releases>
         </repository>
     </repositories>
-
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
   ~ Copyright (C) 2017 WSO2 Inc. (http://wso2.com)
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -14,18 +13,13 @@
 
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses />.
-  -->
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
+  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>org.wso2.extension.siddhi.gpl.execution.geo</groupId>
         <artifactId>siddhi-gpl-execution-geo-parent</artifactId>
         <version>4.0.11-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-
     <artifactId>siddhi-gpl-execution-geo</artifactId>
     <packaging>bundle</packaging>
     <modelVersion>4.0.0</modelVersion>
@@ -75,7 +69,6 @@
         unique to
         the pair of objects
     </description>
-
     <dependencies>
         <dependency>
             <groupId>org.wso2.siddhi</groupId>
@@ -107,7 +100,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <profiles>
         <profile>
             <id>documentation-deploy</id>
@@ -130,7 +122,6 @@
             </build>
         </profile>
     </profiles>
-
     <build>
         <plugins>
             <plugin>
@@ -149,6 +140,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>${surefireArgLine}</argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -205,7 +197,6 @@
             </plugin>
         </plugins>
     </build>
-
     <properties>
         <mavan.findbugsplugin.exclude.file>../findbugs-exclude.xml</mavan.findbugsplugin.exclude.file>
     </properties>
